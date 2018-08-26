@@ -25,11 +25,6 @@ START_TIME = datetime.utcnow()
 TRIGGER = "the end"
 SCORE = 7
 
-USERNAME = ""
-PASSWORD = ""
-CLIENT_ID = ""
-CLIENT_SECRET = ""
-
 ### Logging setup ###
 LOG_LEVEL = logging.DEBUG
 if not os.path.exists(LOG_FOLDER_NAME):
@@ -135,17 +130,18 @@ def getIDFromFullname(fullname):
 	return re.findall('^(?:t\d_)?(.{4,8})', fullname)[0]
 
 
+user = None
+if len(sys.argv) >= 2:
+	user = sys.argv[1]
+else:
+	log.error("No user specified, aborting")
+	sys.exit(0)
+
 log.debug("Connecting to reddit")
 
 
-# r = praw.Reddit(
-# 	username=USERNAME
-# 	,password=PASSWORD
-# 	,client_id=CLIENT_ID
-# 	,client_secret=CLIENT_SECRET
-# 	,user_agent=USER_AGENT)
 r = praw.Reddit(
-	"Watchful1BotTest"
+	user
 	,user_agent=USER_AGENT)
 
 
