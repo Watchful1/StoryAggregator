@@ -14,7 +14,7 @@ from datetime import timedelta
 
 ### Config ###
 LOG_FOLDER_NAME = "logs"
-SUBREDDIT = "subtestbot1"
+SUBREDDIT = "3atatime"
 USER_AGENT = "story aggregator (by /u/Watchful1)"
 LOOP_TIME = 5 * 60
 REDDIT_OWNER = "Watchful1"
